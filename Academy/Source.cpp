@@ -223,5 +223,9 @@ void main()
 		group[i]->print();
 		cout << delimetr << endl;
 	}
+	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
+	{
+		delete group[i];
+	}
 
 }
