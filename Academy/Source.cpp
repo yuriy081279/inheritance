@@ -1,5 +1,6 @@
 ﻿#include<iostream>
 #include<string>
+#include<fstream>
 using namespace std;
 #define delimetr "\n----------------------------------------------\n"
 #define HUMAN_TAKE_PARAMETERS  const std::string& last_name, const std::string& first_name, unsigned int age
@@ -199,6 +200,9 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "");
+	std::ofstream fout;
+	
+
 	Human human("Montana", "Antonio", 25);
 	human.print();
 	cout << delimetr << endl;
@@ -226,6 +230,11 @@ void main()
 
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
+		fout.open("File.txt", std::ios::app);
+
+		fout << group[i]->print(); 
+		fout.close();
+		system("notepad File.txt");
 		group[i]->print();
 		cout << delimetr << endl;
 	}
