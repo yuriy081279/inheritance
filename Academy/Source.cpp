@@ -227,7 +227,12 @@ void main()
 	new Teacher("Wal", "Wh", 50, "Chem", 19),
 	new GS("Vas", "Iv", 25, "Chem", "F 23", 9, 6, "LSD")
 	};
-
+	
+	std::ostream& operator<<(std::ostream& os, const Student& obj)
+	{		
+		os << (Human&)obj << "  " << endl;
+		return os; //<< obj.get_specialty() << " " << obj.get_group() << "  " << obj.get_rating() << obj.get_attendance() << endl;
+	}
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
 		fout.open("File.txt", std::ios::app);
