@@ -47,7 +47,7 @@ public:
 	{
 		cout << "HConstructor:\t "<< this << endl;
 	}
-	~Human()
+	virtual ~Human()
 	{
 		cout << "Hdestructor:\t" << this << endl;
 	}
@@ -55,8 +55,16 @@ public:
 	{
 		cout << last_name << " " << first_name << " " << age << " лет.\n";
 	}
+	/*virtual std::ostream& print(std::ostream&)const
+	{
+		cout << last_name << " " << first_name << " " << age << " лет.\n";
+	}*/
 }; 
 
+std::ostream& operator<<(std::ostream os, const Human& obj)
+{
+	return os << obj.get_last_name() << " " << obj.get_first_name() << "  " << obj.get_age() << endl;
+}
 class Student:public Human
 {
 	std::string specialty;
@@ -205,8 +213,6 @@ void main()
 
 	GS ktoto("Vasiliy", "Ivanov", 25, "Chemistry", "FF 230", 90, 67, "LSD");
 	ktoto.print();
-
-
 
 	Human* group[] =
 	{
