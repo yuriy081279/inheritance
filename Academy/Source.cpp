@@ -7,7 +7,6 @@ using namespace std;
 #define HUMAN_GIVE_PARAMETERS  last_name,  first_name,  age
 #define STUDENT_TAKE_PARAMETERS const std::string& specialty, const std::string group, double rating, double attendance
 #define STUDENT_GIVE_PARAMETERS specialty, group, rating, attendance
-
 class Human
 {
 	std::string last_name;
@@ -39,14 +38,14 @@ public:
 		this->age = age;
 	}*/
 
-	
+
 	/// ///////////// CONSTRUCTORS
 
 
-	Human(HUMAN_TAKE_PARAMETERS):
-	last_name(last_name), first_name(first_name), age(age)
+	Human(HUMAN_TAKE_PARAMETERS) :
+		last_name(last_name), first_name(first_name), age(age)
 	{
-		cout << "HConstructor:\t "<< this << endl;
+		cout << "HConstructor:\t " << this << endl;
 	}
 	virtual ~Human()
 	{
@@ -60,13 +59,13 @@ public:
 	{
 		cout << last_name << " " << first_name << " " << age << " лет.\n";
 	}*/
-}; 
+};
 
-std::ostream& operator<<(std::ostream os, const Human& obj)
+ostream& operator<<(ostream& os, const Human& obj)
 {
 	return os << obj.get_last_name() << " " << obj.get_first_name() << "  " << obj.get_age() << endl;
 }
-class Student:public Human
+class Student :public Human
 {
 	std::string specialty;
 	std::string group;
@@ -106,8 +105,8 @@ public:
 		this->attendance = attendance;
 	}
 	////Constructors
-	Student(HUMAN_TAKE_PARAMETERS, 
-		STUDENT_TAKE_PARAMETERS):
+	Student(HUMAN_TAKE_PARAMETERS,
+		STUDENT_TAKE_PARAMETERS) :
 		Human(HUMAN_GIVE_PARAMETERS)
 	{
 		this->specialty = specialty;
@@ -126,7 +125,7 @@ public:
 		cout << specialty << "  " << group << "  " << rating << " " << attendance << "  " << endl;
 	}
 };
-class Teacher: public Human
+class Teacher : public Human
 {
 	std::string specialty;
 	unsigned int experience;
@@ -149,7 +148,7 @@ public:
 	}
 	/////Constructors
 	Teacher(HUMAN_TAKE_PARAMETERS,
-		const std::string& specialty, unsigned int experience):Human(HUMAN_GIVE_PARAMETERS)
+		const std::string& specialty, unsigned int experience) :Human(HUMAN_GIVE_PARAMETERS)
 	{
 		set_specialty(specialty);
 		set_experience(experience);
@@ -166,7 +165,7 @@ public:
 	}
 };
 
-class GS:public Student
+class GS :public Student
 {
 	std::string topic;
 public:
@@ -180,7 +179,7 @@ public:
 	}
 
 	GS(HUMAN_TAKE_PARAMETERS, STUDENT_TAKE_PARAMETERS, const std::string& topic)
-	:Student(HUMAN_GIVE_PARAMETERS, STUDENT_GIVE_PARAMETERS)
+		:Student(HUMAN_GIVE_PARAMETERS, STUDENT_GIVE_PARAMETERS)
 	{
 		set_topic(topic);
 		cout << "GSconstructor:\t " << this << endl;
@@ -196,12 +195,26 @@ public:
 		cout << topic << "  " << endl;
 	}
 };
+void print(Human* group[], const int n)
+{
+	std::ofstream fout(filename);
+	for (int i = 0; i < n; i++)
+	{
+		fout << *group[i] << endl;
+		fout << delimetr << endl;
+	}
+}
+void save(const Human* group[], const int n, const std::string& filename)
+{
+
+}
+
 
 void main()
 {
 	setlocale(LC_ALL, "");
 	std::ofstream fout;
-	
+
 
 	Human human("Montana", "Antonio", 25);
 	human.print();
@@ -227,22 +240,19 @@ void main()
 	new Teacher("Wal", "Wh", 50, "Chem", 19),
 	new GS("Vas", "Iv", 25, "Chem", "F 23", 9, 6, "LSD")
 	};
+
 	
-	std::ostream& operator<<(std::ostream& os, const Student& obj)
-	{		
-		os << (Human&)obj << "  " << endl;
-		return os; //<< obj.get_specialty() << " " << obj.get_group() << "  " << obj.get_rating() << obj.get_attendance() << endl;
-	}
+	fout.open("Group.txt", std::ios::app);
 	for (int i = 0; i < sizeof(group) / sizeof(Human*); i++)
 	{
-		fout.open("File.txt", std::ios::app);
 
-		fout << group[i]->print(); 
-		fout.close();
-		system("notepad File.txt");
+		fout << *group[i]<<endl;
 		group[i]->print();
 		cout << delimetr << endl;
 	}
+	fout.close();
+	system("notepad Group.txt");
+
 	for (int i = 0; i < sizeof(group) / sizeof(group[0]); i++)
 	{
 		delete group[i];
