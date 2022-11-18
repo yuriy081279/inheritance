@@ -41,7 +41,7 @@ void main()
 							if (j >= 39)
 							{
 								int d = 17;
-								for (int c = 0; c < 18; c++)
+								for (int c = 0; c < 15; c++)
 								{									
 									cout << arr[i][j-d]; 									
 									fout.open("FileRAW.txt", std::ios::app);
