@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WALTER OLEGS VERSION", "WAL
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RAW201", "RAW201\RAW201.vcxproj", "{6B5A3280-5E59-4F97-93AC-49C395B4132B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "network", "network\network.vcxproj", "{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{6B5A3280-5E59-4F97-93AC-49C395B4132B}.Release|x64.Build.0 = Release|x64
 		{6B5A3280-5E59-4F97-93AC-49C395B4132B}.Release|x86.ActiveCfg = Release|Win32
 		{6B5A3280-5E59-4F97-93AC-49C395B4132B}.Release|x86.Build.0 = Release|Win32
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Debug|x64.ActiveCfg = Debug|x64
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Debug|x64.Build.0 = Debug|x64
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Debug|x86.Build.0 = Debug|Win32
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Release|x64.ActiveCfg = Release|x64
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Release|x64.Build.0 = Release|x64
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Release|x86.ActiveCfg = Release|Win32
+		{9C99E080-C8BB-4C5F-A0C7-DC258CE5B771}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
