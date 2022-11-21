@@ -20,15 +20,15 @@ void main()
 	if (fin.is_open())
 	{
 		// читаем файл	
-		std::ifstream file("RAW201.txt");		
+		std::ifstream fin("RAW201.txt");		
 		char x; // Символ при чтении из файла
-		if (file.is_open())
+		if (fin.is_open())
 		{				
 				for (int i = 0; i < RAW; i++)
 				{					
 					for (int j = 0; j < COLS; j++)
 					{
-						file.get(x);
+						fin.get(x);
 						arr[i][j] = x;						
 						if (j > 21) 
 						{			
@@ -60,7 +60,7 @@ void main()
 					fout.close();
 				}								
 				system("notepad FileRAW.txt");
-				file.close();
+				fin.close();
 		}	
 	}
 }
