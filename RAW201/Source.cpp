@@ -19,8 +19,7 @@ void main()
 	std::ifstream fin("RAW201.txt");
 	if (fin.is_open())
 	{
-		// читаем файл	
-		std::ifstream fin("RAW201.txt");		
+		// читаем файл				
 		char x; // Символ при чтении из файла
 		if (fin.is_open())
 		{				
